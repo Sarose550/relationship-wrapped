@@ -93,12 +93,6 @@
         }
       }
 
-      function imgFallback(imgEl) {
-        imgEl.onerror = null;
-        imgEl.src = "assets/photos/placeholder.svg";
-        imgEl.classList.add("opacity-90");
-      }
-
       window.addEventListener("DOMContentLoaded", () => {
         setText("names", NAMES);
         setText("dateLabel", DATE_LABEL);
@@ -120,10 +114,6 @@
             phrasesWrap.appendChild(pill);
           }
         }
-
-        document.querySelectorAll("img[data-fallback='1']").forEach((img) => {
-          img.addEventListener("error", () => imgFallback(img));
-        });
       });
     </script>
 
@@ -148,12 +138,14 @@
 
                 <div class="hidden sm:block text-right text-white/70 text-sm leading-relaxed">
                   <div class="font-semibold text-white/80">Photo names:</div>
-                  <div>assets/photos/mexico.jpg</div>
-                  <div>assets/photos/netherlands.jpg</div>
-                  <div>assets/photos/morocco.jpg</div>
-                  <div>assets/photos/portugal.jpg</div>
-                  <div class="mt-2">assets/photos/pipsy_1.jpg (optional)</div>
-                  <div>assets/cpp.png</div>
+                  <div>assets/photos/mexico.jpeg</div>
+                  <div>assets/photos/netherlands.JPG</div>
+                  <div>assets/photos/morroco.JPG</div>
+                  <div>assets/photos/portugal.png</div>
+                  <div class="mt-2">assets/photos/pipsy1.png</div>
+                  <div>assets/photos/pipsy2.png</div>
+                  <div>assets/photos/pipsy3.png</div>
+                  <div class="mt-2">assets/photos/cpp.png</div>
                 </div>
               </div>
 
@@ -188,10 +180,9 @@
                   <div class="mt-4">
                     <img
                       class="h-24 w-full object-cover rounded-xl border border-white/10"
-                      src="assets/cpp.png"
+                      src="assets/photos/cpp.png"
                       alt="CPP photo"
                       loading="lazy"
-                      data-fallback="1"
                     />
                   </div>
                 </div>
@@ -222,62 +213,58 @@
             <div class="glass rounded-3xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div class="text-xl font-bold">Mexico</div>
-                <div class="text-white/70 text-sm">assets/photos/mexico.jpg</div>
+                <div class="text-white/70 text-sm">assets/photos/mexico.jpeg</div>
               </div>
               <img
                 class="h-64 w-full object-cover"
-                src="assets/photos/mexico.jpg"
+                src="assets/photos/mexico.jpeg"
                 alt="Mexico photo"
                 loading="lazy"
-                data-fallback="1"
               />
             </div>
 
             <div class="glass rounded-3xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div class="text-xl font-bold">Netherlands</div>
-                <div class="text-white/70 text-sm">assets/photos/netherlands.jpg</div>
+                <div class="text-white/70 text-sm">assets/photos/netherlands.JPG</div>
               </div>
               <img
                 class="h-64 w-full object-cover"
-                src="assets/photos/netherlands.jpg"
+                src="assets/photos/netherlands.JPG"
                 alt="Netherlands photo"
                 loading="lazy"
-                data-fallback="1"
               />
             </div>
 
             <div class="glass rounded-3xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div class="text-xl font-bold">Morocco</div>
-                <div class="text-white/70 text-sm">assets/photos/morocco.jpg</div>
+                <div class="text-white/70 text-sm">assets/photos/morroco.JPG</div>
               </div>
               <img
                 class="h-64 w-full object-cover"
-                src="assets/photos/morocco.jpg"
+                src="assets/photos/morroco.JPG"
                 alt="Morocco photo"
                 loading="lazy"
-                data-fallback="1"
               />
             </div>
 
             <div class="glass rounded-3xl overflow-hidden">
               <div class="p-6 flex items-center justify-between">
                 <div class="text-xl font-bold">Portugal</div>
-                <div class="text-white/70 text-sm">assets/photos/portugal.jpg</div>
+                <div class="text-white/70 text-sm">assets/photos/portugal.png</div>
               </div>
               <img
                 class="h-64 w-full object-cover"
-                src="assets/photos/portugal.jpg"
+                src="assets/photos/portugal.png"
                 alt="Portugal photo"
                 loading="lazy"
-                data-fallback="1"
               />
             </div>
           </div>
 
           <div class="mt-6 text-white/70 text-sm">
-            If you haven’t added photos yet, the page will show placeholders automatically.
+            Four countries, one year, countless core memories.
           </div>
         </div>
       </section>
@@ -295,21 +282,20 @@
                     Songs added this year: <span class="text-white/90 font-semibold">34</span>
                   </div>
                 </div>
-                <div class="text-white/70 text-sm">assets/cpp.png</div>
+                <div class="text-white/70 text-sm">assets/photos/cpp.png</div>
               </div>
 
               <div class="glass rounded-3xl overflow-hidden border border-white/10">
                 <img
                   class="w-full h-[420px] object-cover"
-                  src="assets/cpp.png"
+                  src="assets/photos/cpp.png"
                   alt="CPP photo"
                   loading="lazy"
-                  data-fallback="1"
                 />
               </div>
 
               <div class="text-white/70 text-sm">
-                (If you ever want to change the image, replace `assets/cpp.png` and push.)
+                (If you ever want to change the image, replace `assets/photos/cpp.png` and push.)
               </div>
             </div>
           </div>
@@ -333,39 +319,36 @@
                 <div class="glass rounded-2xl overflow-hidden">
                   <img
                     class="h-52 w-full object-cover"
-                    src="assets/photos/pipsy_1.jpg"
+                    src="assets/photos/pipsy1.png"
                     alt="Pipsy post photo 1"
                     loading="lazy"
-                    data-fallback="1"
                   />
-                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy_1.jpg</div>
+                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy1.png</div>
                 </div>
 
                 <div class="glass rounded-2xl overflow-hidden">
                   <img
                     class="h-52 w-full object-cover"
-                    src="assets/photos/pipsy_2.jpg"
+                    src="assets/photos/pipsy2.png"
                     alt="Pipsy post photo 2"
                     loading="lazy"
-                    data-fallback="1"
                   />
-                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy_2.jpg</div>
+                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy2.png</div>
                 </div>
 
                 <div class="glass rounded-2xl overflow-hidden">
                   <img
                     class="h-52 w-full object-cover"
-                    src="assets/photos/pipsy_3.jpg"
+                    src="assets/photos/pipsy3.png"
                     alt="Pipsy post photo 3"
                     loading="lazy"
-                    data-fallback="1"
                   />
-                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy_3.jpg</div>
+                  <div class="p-4 text-white/70 text-sm">assets/photos/pipsy3.png</div>
                 </div>
               </div>
 
               <div class="text-white/70 text-sm">
-                Optional: only add one pipsy photo and leave the rest as placeholders.
+                The pipsy era was extremely real.
               </div>
             </div>
           </div>
