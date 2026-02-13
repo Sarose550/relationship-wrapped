@@ -68,14 +68,14 @@
 
     <script>
       // Edit these values and refresh.
-      const NAMES = "Sam + [Her Name]";
+      const NAMES = "Sam + Fariha";
       const DATE_LABEL = "Valentine's 2026";
       const COUNTRIES = ["Mexico", "Netherlands", "Morocco", "Portugal"];
       const PHRASES = ["EEK", "RAK", "yippee pippee"];
 
-      const FAVORITE_MOMENT = "[favorite moment goes here]";
-      const BEST_TRADITION = "[best tradition goes here]";
-      const WHATS_NEXT = ["[trip idea]", "[date idea]", "[something you’re excited for]"];
+      const FAVORITE_MOMENT = "Quad Biking in Morocco!";
+      const BEST_TRADITION = "Reenacting our first date every year (even if it didn't quite work out this time)";
+      const WHATS_NEXT = ["Semma!!!", "BMTH Concert", "Lastly, HARRY POTTER AND THE CURSED CHILD TICKETS"];
 
       function setText(id, value) {
         const el = document.getElementById(id);
@@ -153,10 +153,11 @@
                   <div>assets/photos/morocco.jpg</div>
                   <div>assets/photos/portugal.jpg</div>
                   <div class="mt-2">assets/photos/pipsy_1.jpg (optional)</div>
+                  <div>assets/cpp.png</div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass rounded-2xl p-6">
                   <div class="text-white/70 text-sm uppercase tracking-widest">Top Stat</div>
                   <div class="mt-3 text-4xl font-extrabold">4</div>
@@ -178,6 +179,21 @@
                   <div class="mt-3 text-4xl font-extrabold">3+</div>
                   <div class="mt-1 text-white/80">phrases unlocked</div>
                   <div class="mt-3 text-white/60 text-sm">our language keeps evolving.</div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 overflow-hidden">
+                  <div class="text-white/70 text-sm uppercase tracking-widest">On Repeat</div>
+                  <div class="mt-3 text-4xl font-extrabold">34</div>
+                  <div class="mt-1 text-white/80">songs added to CPP</div>
+                  <div class="mt-4">
+                    <img
+                      class="h-24 w-full object-cover rounded-xl border border-white/10"
+                      src="assets/cpp.png"
+                      alt="CPP photo"
+                      loading="lazy"
+                      data-fallback="1"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -262,6 +278,40 @@
 
           <div class="mt-6 text-white/70 text-sm">
             If you haven’t added photos yet, the page will show placeholders automatically.
+          </div>
+        </div>
+      </section>
+
+      <!-- CPP -->
+      <section class="min-h-screen flex items-center">
+        <div class="mx-auto w-full max-w-5xl px-6 py-14">
+          <div class="glass rounded-3xl p-8 sm:p-12 overflow-hidden">
+            <div class="flex flex-col gap-8">
+              <div class="flex items-end justify-between gap-4 flex-wrap">
+                <div>
+                  <div class="text-sm tracking-[0.25em] text-white/70 uppercase">Playlist Era</div>
+                  <h2 class="mt-3 text-3xl sm:text-5xl font-extrabold">CPP Wrapped</h2>
+                  <div class="mt-3 text-white/70">
+                    Songs added this year: <span class="text-white/90 font-semibold">34</span>
+                  </div>
+                </div>
+                <div class="text-white/70 text-sm">assets/cpp.png</div>
+              </div>
+
+              <div class="glass rounded-3xl overflow-hidden border border-white/10">
+                <img
+                  class="w-full h-[420px] object-cover"
+                  src="assets/cpp.png"
+                  alt="CPP photo"
+                  loading="lazy"
+                  data-fallback="1"
+                />
+              </div>
+
+              <div class="text-white/70 text-sm">
+                (If you ever want to change the image, replace `assets/cpp.png` and push.)
+              </div>
+            </div>
           </div>
         </div>
       </section>
