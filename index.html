@@ -126,9 +126,15 @@
         setText("countriesSummary", `${COUNTRIES.length} countries • 1 favorite person`);
         setText("pipsyCount", String(PIPSY_POSTS.length));
         setText("pipsyCountHeading", String(PIPSY_POSTS.length));
-        const phraseCount = PHRASES.filter(
-          (p) => p && typeof p === "object" && typeof p.text === "string" && p.text.trim().length > 0,
-        ).length + 1;
+        const phraseCount = PHRASES.filter((p) => {
+          if (typeof p === "string") return p.trim().length > 0;
+          if (p && typeof p === "object") {
+            const hasText = typeof p.text === "string" && p.text.trim().length > 0;
+            const hasIcon = typeof p.iconSrc === "string" && p.iconSrc.trim().length > 0;
+            return hasText || hasIcon;
+          }
+          return String(p).trim().length > 0;
+        }).length;
         setText("phrasesCount", `${phraseCount}+`);
         setText("cppSongsCount", String(CPP_SONGS_ADDED.length));
         setText("cppSongsCountInline", String(CPP_SONGS_ADDED.length));
@@ -415,15 +421,11 @@
           </div>
 
           <div class="mt-10 flex flex-wrap gap-3" id="phrasesWrap">
-            <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">
-              EEK
-            </div>
-            <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">
-              RAK
-            </div>
-            <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">
-              yippee pippee
-            </div>
+            <noscript>
+              <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">EEK</div>
+              <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">RAK</div>
+              <div class="glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide">yippee pippee</div>
+            </noscript>
           </div>
 
           <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -450,7 +452,7 @@
           <div class="glass rounded-3xl p-8 sm:p-12">
             <div class="text-sm tracking-[0.25em] text-white/70 uppercase">End of year wrap</div>
             <h2 class="mt-3 text-3xl sm:text-5xl font-extrabold">
-              Happy Valentine’s
+              Happy Valentine's
             </h2>
             <div class="mt-4 text-white/80 text-lg">
               Thanks for being my favorite everything.
