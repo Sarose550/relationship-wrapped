@@ -71,13 +71,33 @@
       const NAMES = "Sam + Fariha";
       const DATE_LABEL = "Valentine's 2026";
       const COUNTRIES = ["Mexico", "Netherlands", "Morocco", "Portugal"];
-      const PHRASES = ["EEK", "RAK", "yippee pippee"];
+      // Phrases can be plain text or an object with optional icon.
+      // To use a custom emoji image, add `assets/custom_emoji.png` (or change iconSrc below).
+      const PHRASES = [
+        { text: "EEK" },
+        { text: "RAK" },
+        { text: "yippee pippee" },
+        { text: "rip pip" },
+        { text: "meanie fettucine / arancini" },
+        { iconSrc: "assets/custom_emoji.png", alt: "custom emoji" },
+        { text: "sploot" },
+        { text: "perkhops" },
+        { text: "fibba" },
+        { text: "ON EVERYONE'S SOULS" },
+        { text: "bleep blorp" },
+        { text: "fishy-fishy" },
+        { text: "adorbable"},
+        { text: "Lukira lukira" },
+        { text: "hampter" },
+        { text: "troopa cat" },
+        { text: "i sowwy" },
+      ];
       const PIPSY_POSTS = Array.from({ length: 30 }, (_, i) => i + 1);
       const CPP_SONGS_ADDED = Array.from({ length: 34 }, (_, i) => i + 1);
 
       const FAVORITE_MOMENT = "Quad Biking in Morocco!";
       const BEST_TRADITION = "Reenacting our first date every year (even if it didn't quite work out this time)";
-      const WHATS_NEXT = ["Semma!!!", "BMTH Concert", "Lastly, HARRY POTTER AND THE CURSED CHILD TICKETS"];
+      const WHATS_NEXT = ["Semma", "BMTH Concert", "Lastly, HARRY POTTER AND THE CURSED CHILD TICKETS"];
 
       function setText(id, value) {
         const el = document.getElementById(id);
@@ -115,11 +135,33 @@
         const phrasesWrap = document.getElementById("phrasesWrap");
         if (phrasesWrap) {
           phrasesWrap.innerHTML = "";
-          for (const p of PHRASES) {
+          for (const phrase of PHRASES) {
+            const p =
+              typeof phrase === "string"
+                ? { text: phrase }
+                : phrase && typeof phrase === "object"
+                  ? phrase
+                  : { text: String(phrase) };
+
             const pill = document.createElement("div");
             pill.className =
-              "glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide";
-            pill.textContent = p;
+              "glass rounded-full px-5 py-3 text-lg sm:text-xl font-semibold tracking-wide inline-flex items-center gap-2";
+
+            if (p.iconSrc) {
+              const img = document.createElement("img");
+              img.src = p.iconSrc;
+              img.alt = p.alt || "";
+              img.loading = "lazy";
+              img.className = "h-7 w-7";
+              pill.appendChild(img);
+            }
+
+            if (p.text) {
+              const span = document.createElement("span");
+              span.textContent = p.text;
+              pill.appendChild(span);
+            }
+
             phrasesWrap.appendChild(pill);
           }
         }
