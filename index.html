@@ -72,6 +72,8 @@
       const DATE_LABEL = "Valentine's 2026";
       const COUNTRIES = ["Mexico", "Netherlands", "Morocco", "Portugal"];
       const PHRASES = ["EEK", "RAK", "yippee pippee"];
+      const PIPSY_POSTS = Array.from({ length: 30 }, (_, i) => i + 1);
+      const CPP_SONGS_ADDED = Array.from({ length: 34 }, (_, i) => i + 1);
 
       const FAVORITE_MOMENT = "Quad Biking in Morocco!";
       const BEST_TRADITION = "Reenacting our first date every year (even if it didn't quite work out this time)";
@@ -96,6 +98,13 @@
       window.addEventListener("DOMContentLoaded", () => {
         setText("names", NAMES);
         setText("dateLabel", DATE_LABEL);
+        setText("countriesCount", String(COUNTRIES.length));
+        setText("countriesCountInline", String(COUNTRIES.length));
+        setText("pipsyCount", String(PIPSY_POSTS.length));
+        setText("pipsyCountHeading", String(PIPSY_POSTS.length));
+        setText("phrasesCount", String(PHRASES.length));
+        setText("cppSongsCount", String(CPP_SONGS_ADDED.length));
+        setText("cppSongsCountInline", String(CPP_SONGS_ADDED.length));
         setText("favoriteMoment", FAVORITE_MOMENT);
         setText("bestTradition", BEST_TRADITION);
         fillList("whatsNext", WHATS_NEXT);
@@ -140,7 +149,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="glass rounded-2xl p-6">
                   <div class="text-white/70 text-sm uppercase tracking-widest">Top Stat</div>
-                  <div class="mt-3 text-4xl font-extrabold">4</div>
+                  <div class="mt-3 text-4xl font-extrabold" id="countriesCount">4</div>
                   <div class="mt-1 text-white/80">countries traveled</div>
                   <div class="mt-3 text-white/60 text-sm" id="countriesList">
                     Mexico • Netherlands • Morocco • Portugal
@@ -149,21 +158,21 @@
 
                 <div class="glass rounded-2xl p-6">
                   <div class="text-white/70 text-sm uppercase tracking-widest">Curated</div>
-                  <div class="mt-3 text-4xl font-extrabold">30</div>
+                  <div class="mt-3 text-4xl font-extrabold" id="pipsyCount">30</div>
                   <div class="mt-1 text-white/80">pipsy posts</div>
                   <div class="mt-3 text-white/60 text-sm">no notes. iconic.</div>
                 </div>
 
                 <div class="glass rounded-2xl p-6">
                   <div class="text-white/70 text-sm uppercase tracking-widest">New Additions</div>
-                  <div class="mt-3 text-4xl font-extrabold">3+</div>
+                  <div class="mt-3 text-4xl font-extrabold" id="phrasesCount">3</div>
                   <div class="mt-1 text-white/80">phrases unlocked</div>
                   <div class="mt-3 text-white/60 text-sm">our language keeps evolving.</div>
                 </div>
 
                 <div class="glass rounded-2xl p-6 overflow-hidden">
                   <div class="text-white/70 text-sm uppercase tracking-widest">On Repeat</div>
-                  <div class="mt-3 text-4xl font-extrabold">34</div>
+                  <div class="mt-3 text-4xl font-extrabold" id="cppSongsCount">34</div>
                   <div class="mt-1 text-white/80">songs added to CPP</div>
                   <div class="mt-4">
                     <img
@@ -190,7 +199,9 @@
                 Top countries this year
               </h2>
             </div>
-            <div class="text-white/70 text-sm hidden sm:block">4 countries • 1 favorite person</div>
+            <div class="text-white/70 text-sm hidden sm:block">
+              <span id="countriesCountInline">4</span> countries • 1 favorite person
+            </div>
           </div>
 
           <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -259,7 +270,8 @@
                   <div class="text-sm tracking-[0.25em] text-white/70 uppercase">Playlist Era</div>
                   <h2 class="mt-3 text-3xl sm:text-5xl font-extrabold">CPP Wrapped</h2>
                   <div class="mt-3 text-white/70">
-                    Songs added this year: <span class="text-white/90 font-semibold">34</span>
+                    Songs added this year:
+                    <span class="text-white/90 font-semibold" id="cppSongsCountInline">34</span>
                   </div>
                 </div>
               </div>
@@ -285,7 +297,9 @@
             <div class="flex flex-col gap-8">
               <div>
                 <div class="text-sm tracking-[0.25em] text-white/70 uppercase">Curator Era</div>
-                <h2 class="mt-3 text-3xl sm:text-5xl font-extrabold">30 pipsy posts</h2>
+                <h2 class="mt-3 text-3xl sm:text-5xl font-extrabold">
+                  <span id="pipsyCountHeading">30</span> pipsy posts
+                </h2>
                 <div class="mt-3 text-white/70">
                   A year of tiny finds, shared obsessions, and the exact right amount of unhinged.
                 </div>
